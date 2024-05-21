@@ -1,0 +1,22 @@
+syntax = "proto3";
+import "google/api/annotations.proto";
+
+package rgaskill.test.v2;
+
+service TestAPI {
+    rpc TestRun(RunReq)
+            returns (RunResp) {
+        option (google.api.http) = {
+            post : "/test/{id}"
+            body : "*"
+        };
+    };
+}
+
+message RunReq {
+  int64 id = 1;
+}
+
+message RunResp {
+  int64 id = 1;
+}
